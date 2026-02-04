@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #6ce968, #e4fc5f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      animation: pop 1s ease;
+      z-index: 2;
+      max-width: 90%;
+    }
+
+    h1 {
+      color: #e63946;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      font-size: 1.2em;
+      margin-bottom: 25px;
+    }
+
+    .heart {
+      color: #e63946;
+      font-size: 3em;
+      animation: beat 1s infinite;
+      margin: 15px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 28px;
+      font-size: 1.1em;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .yes {
+      background: #e63946;
+      color: white;
+    }
+
+    .no {
+      background: #eee;
+      color: #333;
+      position: relative;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Floating hearts */
+    .floating-heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 24px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Will you be my Valentine? </h1>
+    <img src="https://slackmojis.com/emojis/1320-triforce/download" width = "75">
+    <p>
+      I'd travel across all of Hyrule just to find you!
+    </p>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes ❤️</button>
+      <button class="no" onmouseover="moveNo(this)">No 🙃</button>
+    </div>
+  </div>
+
+  <script>
+    function sayYes() {
+      document.getElementById("card").innerHTML = `
+        <h1> LETS GO POOKIE :^) </h1> 
+        <img src = "https://i.gifer.com/6mx.gif"> </div>
+        <p>
+          I’m really glad you said yes 💖...again.<br> Although you didn't have a choice btw >:) <br>
+          Hurray to another year of eating sushi together 🍣🥢
+        </p>
+      `;
+    }
+
+    function moveNo(btn) {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+
+</body>
+</html>
